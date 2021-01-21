@@ -9,15 +9,15 @@
         <h3>Build a Pizza</h3>
 
         <select name="size">
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
+            <option id="Small" value="Small">Small</option>
+            <option  idevalue="Medium">Medium</option>
             <option value="Large">Large</option>
         </select>
 
         <br>
         <br>
 
-        <select name="crust ">
+        <select name="crust">
             <option value="Thin">Thin crust</option>
             <option value="Original">Original crust</option>
             <option value="Stuffed">Stuffed crust</option>

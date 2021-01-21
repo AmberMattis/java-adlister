@@ -8,6 +8,10 @@ import java.io.IOException;
 @WebServlet(name = "PizzaOrderServlet", urlPatterns = "/pizza-order")
 public class PizzaOrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.getRequestDispatcher("pizza-order.jsp").forward(req, res);
+
+    }
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
     String size = req.getParameter("size");
     String crust = req.getParameter("crust");
@@ -29,4 +33,6 @@ public class PizzaOrderServlet extends HttpServlet {
     req.getRequestDispatcher("pizza-order.jsp").forward(req,res);
 
     }
+
+
 }
