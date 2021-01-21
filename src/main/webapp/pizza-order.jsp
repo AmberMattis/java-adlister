@@ -5,7 +5,7 @@
     <title> Pizza Order</title>
 </head>
 <dody>
-    <form action="pizza-order.jsp" method="post">
+    <form action="/pizza-order" method="post">
         <h3>Build a Pizza</h3>
 
         <select name="size">
