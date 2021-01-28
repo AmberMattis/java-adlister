@@ -29,27 +29,31 @@ public class MySQLAdsDao implements Ads {
     @Override
     public List<Ad> all() {
 
-        PreparedStatement stmt = null;
+        String sql = "SELECT * FROM ads";
+//
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads");
+
+            PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
+
     }
 
     @Override
     public Long insert(Ad ad) {
         try {
-            Statement stmt = connection.createStatement();
-            stmt.executeUpdate(createInsertQuery(ad), Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement stmt = connection.prepareStatement(createInsertQuery(ad), Statement.RETURN_GENERATED_KEYS);
+            stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
+
     }
 
     private String createInsertQuery(Ad ad) {
